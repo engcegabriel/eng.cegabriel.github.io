@@ -1,266 +1,740 @@
 <!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
     <meta charset="utf-8">
-    <title> Eng. Carlos Eduardo Gabriel | Engenheiro Mecânico | CREA-PR 172454/D </title>
-  /D  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.50ec1b0612bf5b0c30a5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
 var _framermotion = require('framer-motion');
+
+
+
+
+
+
 var _lucidereact = require('lucide-react');
+
+/* ── Logo URLs ── */
+const LOGO_TRANSPARENT = 'https://i.postimg.cc/hzmL576X/img-sem-fundo.png';
+const LOGO_WHITE_BG = 'https://i.postimg.cc/xqKGGMK8/img-fundo-branco.jpg';
+
+const Logo = ({ size = 28, invert = false, withBg = false, className = '' }) => (
+  _react2.default.createElement('img', {
+    src: withBg ? LOGO_WHITE_BG : LOGO_TRANSPARENT,
+    alt: "Logo Eng. Carlos Eduardo"   ,
+    className: className,
+    style: {
+      width: size,
+      height: size,
+      objectFit: 'contain',
+      filter: invert ? 'brightness(0) invert(1)' : 'none',
+      borderRadius: withBg ? 6 : 0,
+    },}
+  )
+);
+
+const WA = 'https://wa.me/5541996273338';
+const TEL = 'tel:+5541996273338';
+const FONE = '(41) 99627-3338';
+
+const images = {
+  hero: 'https://images.unsplash.com/photo-1504917595217-d4dc5ede4b0c?w=1400&q=80',
+  crane: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+  elevator: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80',
+  safety: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
+  machine: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80',
+  cta: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80',
+  blueprint: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
+};
+
+const navItems = [
+  { label: 'Início', href: '#inicio' },
+  { label: 'Serviços', href: '#servicos' },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'Contato', href: '#contato' }
+];
 
 const services = [
   {
-    id: 1,
-    icon: _lucidereact.Building2,
-    title: "Estruturas Metálicas",
-    desc: "Projetos, dimensionamento e acompanhamento de fabricação e montagem",
-    items: ["Cálculo estrutural de perfis", "Projetos executivos e detalhamento", "Ligações soldadas e parafusadas", "Análise de estabilidade (flambagem, fadiga)", "Acompanhamento de fabricação e montagem"],
-    norms: "NBR 8800 | AWS D1.1"
+    icon: _lucidereact.Shield, title: 'Adequação NR-12',
+    desc: 'Análise de riscos e adequação de máquinas conforme NR-12, NBR ISO 12100 e NBR 14153.',
+    iconBg: 'bg-blue-600', ringColor: '#93c5fd',
+    textAccent: 'text-blue-600', textAccentD: 'text-blue-400',
+    normBg: 'bg-blue-50', normBgD: 'bg-slate-800',
+    items: [
+      'Apreciação de riscos conforme NBR ISO 12100',
+      'Categorização de segurança (NBR 14153 / ISO 13849)',
+      'Projeto de proteções fixas e móveis',
+      'Especificação de dispositivos de segurança (cortinas de luz, scanners, relés)',
+      'Laudo de conformidade NR-12 com emissão de ART',
+      'Inventário de máquinas e equipamentos',
+      'Treinamento de operadores conforme NR-12'
+    ],
+    norm: 'NR-12 | NBR ISO 12100 | NBR 14153 | ISO 13849',
+    waMsg: 'Adequação NR-12'
   },
   {
-    id: 2,
-    icon: _lucidereact.Wrench,
-    title: "Projetos Mecânicos",
-    desc: "Desenvolvimento de máquinas, dispositivos e equipamentos industriais",
-    items: ["Conjuntos e subconjuntos mecânicos", "Seleção de materiais e tratamentos", "Modelagem 3D e desenhos técnicos (CAD/CAE)", "Elementos de máquinas", "Prototipagem e fabricação"],
-    norms: "ISO 2768 | ASME Y14.5"
+    icon: _lucidereact.Search, title: 'Laudos Técnicos',
+    desc: 'Laudos estruturais, pareceres técnicos e relatórios de inspeção com fundamentação normativa.',
+    iconBg: 'bg-emerald-500', ringColor: '#6ee7b7',
+    textAccent: 'text-emerald-600', textAccentD: 'text-emerald-400',
+    normBg: 'bg-emerald-50', normBgD: 'bg-slate-800',
+    items: [
+      'Laudos estruturais e de estabilidade',
+      'Laudos de inspeção de equipamentos (vasos de pressão, caldeiras, tubulações)',
+      'Pareceres técnicos fundamentados',
+      'Relatórios de inspeção e vistoria',
+      'Laudos de conformidade normativa (NRs e ABNT)',
+      'Análise de vida útil e integridade estrutural',
+      'Laudo de insalubridade e periculosidade (apoio técnico)'
+    ],
+    norm: 'ABNT NBR | NR-13 | NR-12 | NR-18 | NRs aplicáveis',
+    waMsg: 'Laudos Técnicos'
   },
   {
-    id: 3,
-    icon: _lucidereact.Shield,
-    title: "NR-12 e Segurança de Máquinas",
-    desc: "Regularização, adequação e laudos de conformidade para máquinas",
-    items: ["Apreciação de riscos (ISO 12100)", "Laudos de adequação NR-12", "Categorização de segurança (ISO 13849-1)", "Projeto de proteções e intertravamentos", "Inventário e manuais de operação"],
-    norms: "NR-12 | NBR ISO 12100 | NBR 14153"
+    icon: _lucidereact.Cpu, title: 'Projetos Mecânicos',
+    desc: 'Modelagem 3D, análise FEA, cálculo estrutural e detalhamento técnico para fabricação.',
+    iconBg: 'bg-violet-600', ringColor: '#c4b5fd',
+    textAccent: 'text-violet-600', textAccentD: 'text-violet-400',
+    normBg: 'bg-violet-50', normBgD: 'bg-slate-800',
+    items: [
+      'Modelagem 3D e detalhamento técnico (SolidWorks / AutoCAD / Inventor)',
+      'Análise por Elementos Finitos (FEA/FEM)',
+      'Cálculo estrutural e dimensionamento mecânico',
+      'Projetos de máquinas e dispositivos industriais',
+      'Projetos de estruturas metálicas e suportes',
+      'Documentação técnica completa para fabricação',
+      'Memorial descritivo e de cálculo',
+      'Acompanhamento de fabricação e montagem'
+    ],
+    norm: 'ISO 2768 | ASME Y14.5 | ABNT NBR 8800 | AWS D1.1',
+    waMsg: 'Projetos Mecânicos'
   },
   {
-    id: 4,
-    icon: _lucidereact.Wind,
-    title: "HVAC e Refrigeração",
-    desc: "Climatização, ventilação forçada, refrigeração e eficiência energética",
-    items: ["Sistemas de ar condicionado (VRF, Chiller)", "Cálculo de carga térmica (ASHRAE)", "Ventilação industrial e exaustão", "Câmaras frigoríficas", "PMOC e comissionamento"],
-    norms: "NBR 16401 | ASHRAE | Lei 13.589"
+    icon: _lucidereact.Award, title: 'ART',
+    desc: 'Emissão de Anotação de Responsabilidade Técnica com respaldo legal junto ao CREA.',
+    iconBg: 'bg-amber-500', ringColor: '#fcd34d',
+    textAccent: 'text-amber-600', textAccentD: 'text-amber-400',
+    normBg: 'bg-amber-50', normBgD: 'bg-slate-800',
+    items: [
+      'Emissão de ART junto ao CREA/PR',
+      'Responsabilidade técnica em projetos e laudos',
+      'ART de obras e serviços de engenharia mecânica',
+      'ART de cargo e função',
+      'ART de desempenho de atividade',
+      'Acompanhamento e regularização junto ao conselho',
+      'Orientação sobre exigências legais e normativas'
+    ],
+    norm: 'Resolução CONFEA 1.025/2009 | Lei 6.496/77',
+    waMsg: 'Emissão de ART'
   },
   {
-    id: 5,
-    icon: _lucidereact.GraduationCap,
-    title: "Treinamentos Operacionais",
-    desc: "Capacitação para operação segura de equipamentos na construção civil",
-    items: ["Elevadores de cremalheira", "Gruas e guindastes torre", "Plataformas elevatórias (PTA)", "Empilhadeiras e pontes rolantes", "Reciclagens e certificação"],
-    norms: "NR-11 | NR-12 | NR-18 | NR-35"
+    icon: _lucidereact.Microscope, title: 'Perícias Técnicas',
+    desc: 'Perícias judiciais e extrajudiciais, análise de falhas e assistência técnica.',
+    iconBg: 'bg-rose-500', ringColor: '#fda4af',
+    textAccent: 'text-rose-600', textAccentD: 'text-rose-400',
+    normBg: 'bg-rose-50', normBgD: 'bg-slate-800',
+    items: [
+      'Perícias judiciais e extrajudiciais',
+      'Análise de falhas e determinação de causa raiz',
+      'Assistência técnica em processos judiciais',
+      'Laudos periciais detalhados e fundamentados',
+      'Avaliações técnicas de sinistros industriais',
+      'Reconstituição técnica de acidentes',
+      'Quesitos técnicos para processos judiciais'
+    ],
+    norm: 'NBR 14653 | Código de Processo Civil | NRs aplicáveis',
+    waMsg: 'Perícias Técnicas'
   },
   {
-    id: 6,
-    icon: _lucidereact.FileText,
-    title: "Laudos de Segurança do Trabalho",
-    desc: "LTCAT, insalubridade, periculosidade, PGR e PGRS",
-    items: ["LTCAT — Condições Ambientais", "Laudos de Insalubridade (NR-15)", "Laudos de Periculosidade (NR-16)", "PGR para obras (NR-18)", "PGRS — Resíduos Sólidos"],
-    norms: "NR-01 | NR-15 | NR-16 | NR-18"
-  },
-  {
-    id: 7,
-    icon: _lucidereact.Settings,
-    title: "Manutenção Industrial",
-    desc: "Planejamento de manutenção preventiva, preditiva e gestão de ativos",
-    items: ["Planos de manutenção (preventiva/preditiva)", "Metodologias TPM, RCM, FMEA", "Indicadores MTBF, MTTR, OEE", "Termografia, vibração, ultrassom", "Paradas programadas (shutdown)"],
-    norms: "ISO 55000 | NBR 5462 | SAE JA1011"
-  },
-  {
-    id: 8,
-    icon: _lucidereact.Factory,
-    title: "Produção e Manufatura",
-    desc: "Layout fabril, Lean Manufacturing e melhoria contínua",
-    items: ["Layout de linhas de produção", "Lean Manufacturing (Kaizen, VSM, 5S)", "Cronoanálise e balanceamento", "Processos de fabricação", "Controle de qualidade e metrologia"],
-    norms: "ISO 9001 | IATF 16949"
-  },
-  {
-    id: 9,
-    icon: _lucidereact.Bot,
-    title: "Automação Industrial",
-    desc: "Sistemas de controle, CLP, robótica e Indústria 4.0",
-    items: ["CLP/PLC, IHM, SCADA", "Painéis elétricos de comando", "Pneumática e hidráulica", "Robótica industrial", "IoT e Indústria 4.0"],
-    norms: "IEC 61131-3 | ISA-88/95 | ISO 10218"
-  },
-  {
-    id: 10,
-    icon: _lucidereact.FolderKanban,
-    title: "Gestão de Projetos",
-    desc: "Planejamento, coordenação e viabilidade técnico-econômica",
-    items: ["Cronograma e controle (PMBOK)", "Gestão de custos e recursos", "Viabilidade (TIR, VPL, Payback)", "Fiscalização de obras", "Gestão de riscos"],
-    norms: "PMBOK | ISO 21500"
-  },
-  {
-    id: 11,
-    icon: _lucidereact.Search,
-    title: "Consultorias e Perícias",
-    desc: "Perícias judiciais, assistência técnica e análise de falhas",
-    items: ["Perícias judiciais e extrajudiciais", "Assistência técnica processual", "Análise de causas raiz (RCA)", "Pareceres e laudos periciais", "Avaliação patrimonial de equipamentos"],
-    norms: "NBR 14653 | CPC | Res. 345 CONFEA"
-  },
-  {
-    id: 12,
-    icon: _lucidereact.Stamp,
-    title: "Responsabilidade Técnica",
-    desc: "RT junto ao CREA, emissão de ART e acervo técnico",
-    items: ["RT para fabricação de máquinas", "RT para estruturas metálicas", "RT para HVAC e refrigeração", "RT para locação de equipamentos", "Habilitação técnica e licitações"],
-    norms: "Lei 5.194/66 | Res. 1.073/2016 CONFEA"
+    icon: _lucidereact.Compass, title: 'Consultoria',
+    desc: 'Diagnóstico industrial, plano de adequação, treinamentos e gestão de manutenção.',
+    iconBg: 'bg-cyan-500', ringColor: '#67e8f9',
+    textAccent: 'text-cyan-600', textAccentD: 'text-cyan-400',
+    normBg: 'bg-cyan-50', normBgD: 'bg-slate-800',
+    items: [
+      'Diagnóstico industrial completo',
+      'Plano de adequação normativa (NRs e ABNT)',
+      'Gestão de manutenção (PCM — Planejamento e Controle de Manutenção)',
+      'Treinamentos técnicos especializados (NR-12, NR-13, NR-18)',
+      'Otimização de processos produtivos',
+      'Implantação de programas de segurança de máquinas',
+      'FMEA — Análise de Modos de Falha e seus Efeitos',
+      'Gestão de ativos industriais'
+    ],
+    norm: 'ISO 9001 | ISO 45001 | ISO 55000 | TPM',
+    waMsg: 'Consultoria Industrial'
   }
 ];
 
-function ServiceCard({ service, isOpen, onClick }) {
-  const Icon = service.icon;
-  return (
-    _react2.default.createElement(_framermotion.motion.div, { layout: true, className: "bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow",}
-      , _react2.default.createElement('button', { onClick: onClick, className: "w-full p-4 sm:p-5 flex items-center gap-3 sm:gap-4 text-left hover:bg-gray-50 transition-colors",}
-        , _react2.default.createElement('div', { className: "w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-blue-900 flex items-center justify-center flex-shrink-0",}
-          , _react2.default.createElement(Icon, { className: "w-5 h-5 sm:w-6 sm:h-6 text-orange-400",} )
-        )
-        , _react2.default.createElement('div', { className: "flex-1 min-w-0",}
-          , _react2.default.createElement('h3', { className: "font-semibold text-gray-900 text-sm leading-tight",}, service.title)
-          , _react2.default.createElement('p', { className: "text-xs text-gray-500 mt-0.5 leading-relaxed break-words",}, service.desc)
-        )
-        , isOpen ? _react2.default.createElement(_lucidereact.ChevronUp, { className: "w-5 h-5 text-gray-400 flex-shrink-0",} ) : _react2.default.createElement(_lucidereact.ChevronDown, { className: "w-5 h-5 text-gray-400 flex-shrink-0",} )
-      )
-      , _react2.default.createElement(_framermotion.AnimatePresence, null
-        , isOpen && (
-          _react2.default.createElement(_framermotion.motion.div, {
-            initial: { height: 0, opacity: 0 },
-            animate: { height: "auto", opacity: 1 },
-            exit: { height: 0, opacity: 0 },
-            transition: { duration: 0.3 },
-            className: "overflow-hidden",}
+const stats = [
+  { v: '100+', l: 'Projetos Entregues', icon: _lucidereact.Target },
+  { v: '8+', l: 'Anos de Experiência', icon: _lucidereact.Clock },
+  { v: '50+', l: 'Clientes Atendidos', icon: _lucidereact.Users },
+  { v: '100%', l: 'Conformidade', icon: _lucidereact.CheckCircle }
+];
 
-            , _react2.default.createElement('div', { className: "px-4 sm:px-5 pb-4 sm:pb-5 border-t border-gray-100 pt-4",}
-              , _react2.default.createElement('ul', { className: "space-y-2",}
-                , service.items.map((item, i) => (
-                  _react2.default.createElement('li', { key: i, className: "flex items-start gap-2 text-xs text-gray-600",}
-                    , _react2.default.createElement(_lucidereact.CheckCircle2, { className: "w-3.5 h-3.5 text-orange-500 mt-0.5 flex-shrink-0",} )
-                    , _react2.default.createElement('span', { className: "leading-relaxed",}, item)
-                  )
-                ))
-              )
-              , _react2.default.createElement('div', { className: "mt-3 px-3 py-2 bg-blue-50 rounded-lg",}
-                , _react2.default.createElement('p', { className: "text-xs text-blue-800 font-medium break-words leading-relaxed",}, "📐 " , service.norms)
-              )
-            )
-          )
-        )
-      )
+const steps = [
+  { n: '01', t: 'Diagnóstico', d: 'Reunião técnica para levantar requisitos e definir escopo.', icon: _lucidereact.Eye },
+  { n: '02', t: 'Planejamento', d: 'Proposta técnica com cronograma e metodologia definidos.', icon: _lucidereact.BookOpen },
+  { n: '03', t: 'Execução', d: 'Desenvolvimento com checkpoints de qualidade contínuos.', icon: _lucidereact.Cog },
+  { n: '04', t: 'Entrega', d: 'Documentação completa, validação e suporte pós-entrega.', icon: _lucidereact.CheckCircle }
+];
+
+const diffs = [
+  { icon: _lucidereact.Award, t: 'CREA/PR 172454/D', d: 'Profissional registrado com formação sólida e atualização contínua.', verified: true },
+  { icon: _lucidereact.Rocket, t: 'Agilidade', d: 'Processos otimizados para entregar com rapidez e precisão.', verified: false },
+  { icon: _lucidereact.Target, t: 'Rigor Técnico', d: 'Normas ABNT, NRs e padrões internacionais ISO/ASME.', verified: false },
+  { icon: _lucidereact.Heart, t: 'Atendimento', d: 'Comunicação transparente e suporte personalizado.', verified: false }
+];
+
+const illustrations = [
+  { img: images.crane, icon: _lucidereact.Building, tag: 'Equipamentos de Obra', title: 'Gruas e Guindastes', desc: 'Inspeção, laudo técnico e ART para gruas e equipamentos de elevação conforme NR-18 e NR-12.', cta: 'Solicitar laudo', overlay: 'from-blue-900/80', iconText: 'text-blue-600', iconTextD: 'text-blue-400', waMsg: 'Laudo de Gruas e Guindastes' },
+  { img: images.elevator, icon: _lucidereact.TrendingUp, tag: 'Indústria & Fabricação', title: 'Linhas de Produção', desc: 'Projetos mecânicos, adequação de linhas produtivas e laudos de conformidade com emissão de ART.', cta: 'Solicitar inspeção', overlay: 'from-emerald-900/80', iconText: 'text-emerald-600', iconTextD: 'text-emerald-400', waMsg: 'Inspeção de Linhas de Produção' },
+  { img: images.safety, icon: _lucidereact.Shield, tag: 'Segurança Industrial', title: 'Soldagem & Processos', desc: 'Avaliação de conformidade, WPS/RQPS, análise de riscos e laudos para segurança do trabalho.', cta: 'Consultar serviço', overlay: 'from-amber-900/80', iconText: 'text-amber-600', iconTextD: 'text-amber-400', waMsg: 'Consultoria em Soldagem e Processos' },
+  { img: images.machine, icon: _lucidereact.Cpu, tag: 'Adequação NR-12', title: 'Máquinas e Equipamentos', desc: 'Adequação completa: apreciação de riscos, proteções, cortinas de luz e parada de emergência.', cta: 'Solicitar adequação', overlay: 'from-violet-900/80', iconText: 'text-violet-600', iconTextD: 'text-violet-400', waMsg: 'Adequação NR-12 de Máquinas' }
+];
+
+ function App() {
+  const [dark, setDark] = _react.useState.call(void 0, false);
+  const [scrolled, setScrolled] = _react.useState.call(void 0, false);
+  const [menuOpen, setMenuOpen] = _react.useState.call(void 0, false);
+  const [openAccordion, setOpenAccordion] = _react.useState.call(void 0, null);
+  const [logoError, setLogoError] = _react.useState.call(void 0, false);
+
+  _react.useEffect.call(void 0, () => {
+    const h = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', h);
+    return () => window.removeEventListener('scroll', h);
+  }, []);
+
+  const c = (light, darkV) => dark ? darkV : light;
+  const toggleAccordion = (i) => setOpenAccordion(openAccordion === i ? null : i);
+  const waWithMsg = (msg) => `${WA}?text=${encodeURIComponent(msg)}`;
+
+  /* Fallback SVG if postimg is blocked in sandbox */
+  const LogoFallback = ({ size = 28, white = false }) => (
+    _react2.default.createElement('div', { className: `flex items-center justify-center font-black ${white ? 'text-white' : 'text-blue-600'}`,
+      style: { width: size, height: size, fontSize: size * 0.45 },}, "CE"
+
     )
   );
-}
 
- function Portfolio() {
-  const [openId, setOpenId] = _react.useState.call(void 0, null);
-
-  const toggleCard = (id) => {
-    setOpenId(openId === id ? null : id);
+  const LogoImg = ({ size = 28, invert = false }) => {
+    if (logoError) return _react2.default.createElement(LogoFallback, { size: size, white: invert,} );
+    return (
+      _react2.default.createElement('img', {
+        src: LOGO_TRANSPARENT,
+        alt: "Logo Eng. Carlos Eduardo"   ,
+        onError: () => setLogoError(true),
+        style: {
+          width: size, height: size, objectFit: 'contain',
+          filter: invert ? 'brightness(0) invert(1)' : 'none',
+        },}
+      )
+    );
   };
 
-  const whatsappLink = "https://api.whatsapp.com/send/?phone=5541996273338&text=Ol%C3%A1+Eng.+Carlos%2C+vi+seu+portf%C3%B3lio+e+gostaria+de+solicitar+um+or%C3%A7amento.&type=phone_number&app_absent=0";
-  const emailLink = "mailto:eng.cegabriel@gmail.com?subject=Contato%20via%20Portf%C3%B3lio&body=Ol%C3%A1%20Eng.%20Carlos%2C%20";
-
   return (
-    _react2.default.createElement('div', { className: "min-h-screen bg-gray-50",}
-      /* HERO */
-      , _react2.default.createElement('div', { className: "bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white",}
-        , _react2.default.createElement('div', { className: "max-w-5xl mx-auto px-4 py-12 sm:py-16 text-center",}
-          , _react2.default.createElement(_framermotion.motion.div, {
-            initial: { opacity: 0, y: 20 },
-            animate: { opacity: 1, y: 0 },
-            transition: { duration: 0.6 },}
+    _react2.default.createElement('div', { className: `min-h-screen ${c('bg-gray-50','bg-slate-950')} transition-colors duration-500`,}
 
-            , _react2.default.createElement('div', { className: "w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 rounded-full border-2 border-orange-400 bg-white bg-opacity-10 flex items-center justify-center",}
-              , _react2.default.createElement(_lucidereact.Wrench, { className: "w-8 h-8 sm:w-10 sm:h-10 text-orange-400",} )
+      /* NAV */
+      , _react2.default.createElement('nav', { className: `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? `${c('bg-white/90 border-gray-200','bg-slate-900/90 border-slate-800')} backdrop-blur-xl shadow-lg border-b`
+          : 'bg-transparent'
+      }`,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20"         ,}
+          , _react2.default.createElement('a', { href: "#inicio", className: "flex items-center gap-3"  ,}
+            , _react2.default.createElement('div', { className: "w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-lg overflow-hidden"          ,}
+              , _react2.default.createElement(LogoImg, { size: 26, invert: true,} )
             )
-            , _react2.default.createElement('h1', { className: "text-2xl sm:text-3xl font-bold mb-2",}, "Engenheiro Mecânico" )
-            , _react2.default.createElement('p', { className: "text-orange-300 font-semibold text-base sm:text-lg mb-3 sm:mb-4",}, "Carlos Eduardo Gabriel" )
-            , _react2.default.createElement('p', { className: "text-blue-200 text-xs sm:text-sm max-w-xl mx-auto px-2 leading-relaxed",}, "Soluções completas em engenharia mecânica — projetos, laudos, consultorias, manutenção e gestão. Atendimento com excelência técnica e conformidade normativa."
-            )
-            , _react2.default.createElement('div', { className: "flex flex-wrap justify-center gap-2 sm:gap-4 mt-6 sm:mt-8 text-xs text-blue-200",}
-              , _react2.default.createElement('span', { className: "flex items-center gap-1.5 bg-white bg-opacity-10 px-3 py-1.5 rounded-full",}
-                , _react2.default.createElement(_lucidereact.Stamp, { className: "w-3.5 h-3.5",} ), " CREA PR-172454/D"
+            , _react2.default.createElement('div', { className: "leading-none",}
+              , _react2.default.createElement('span', { className: `font-bold text-sm block ${scrolled ? c('text-gray-900','text-white') : 'text-white'}`,}, "Eng. Carlos Eduardo"
+
               )
-              , _react2.default.createElement('a', { href: whatsappLink, target: "_blank", rel: "noopener noreferrer", className: "flex items-center gap-1.5 bg-white bg-opacity-10 px-3 py-1.5 rounded-full hover:bg-opacity-20 transition-all cursor-pointer",}
-                , _react2.default.createElement(_lucidereact.Phone, { className: "w-3.5 h-3.5",} ), " (41) 99627-3338"
-              )
-              , _react2.default.createElement('a', { href: emailLink, target: "_blank", rel: "noopener noreferrer", className: "flex items-center gap-1.5 bg-white bg-opacity-10 px-3 py-1.5 rounded-full hover:bg-opacity-20 transition-all cursor-pointer",}
-                , _react2.default.createElement(_lucidereact.Mail, { className: "w-3.5 h-3.5",} ), " eng.cegabriel@gmail.com"
+              , _react2.default.createElement('span', { className: `text-xs mt-0.5 block ${scrolled ? c('text-gray-400','text-slate-500') : 'text-blue-200'}`,}, "Eng. Mecânico"
+
               )
             )
           )
+          , _react2.default.createElement('div', { className: "hidden lg:flex items-center gap-1"   ,}
+            , navItems.map(n => (
+              _react2.default.createElement('a', { key: n.label, href: n.href, className: `px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                scrolled
+                  ? c('text-gray-500 hover:text-gray-900 hover:bg-gray-100','text-slate-400 hover:text-white hover:bg-slate-800')
+                  : 'text-slate-300 hover:text-white hover:bg-white/10'
+              }`,}, n.label)
+            ))
+            , _react2.default.createElement('button', { onClick: () => setDark(!dark), className: `mx-2 p-2.5 rounded-xl transition-all ${
+              scrolled ? c('text-gray-400 hover:bg-gray-100','text-slate-400 hover:bg-slate-800') : 'text-slate-300 hover:bg-white/10'
+            }`,}, dark ? _react2.default.createElement(_lucidereact.Sun, { className: "w-5 h-5" ,} ) : _react2.default.createElement(_lucidereact.Moon, { className: "w-5 h-5" ,} ))
+            , _react2.default.createElement('a', { href: WA, target: "_blank", rel: "noopener noreferrer" ,
+              className: "ml-2 bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all hover:shadow-lg"             ,}
+              , _react2.default.createElement(_lucidereact.Phone, { className: "w-4 h-4" ,} ), FONE
+            )
+          )
+          , _react2.default.createElement('div', { className: "flex lg:hidden items-center gap-2"   ,}
+            , _react2.default.createElement('button', { onClick: () => setDark(!dark), className: `p-2.5 rounded-xl ${scrolled ? c('text-gray-900','text-white') : 'text-white'}`,}
+              , dark ? _react2.default.createElement(_lucidereact.Sun, { className: "w-5 h-5" ,} ) : _react2.default.createElement(_lucidereact.Moon, { className: "w-5 h-5" ,} )
+            )
+            , _react2.default.createElement('button', { onClick: () => setMenuOpen(!menuOpen), className: `p-2.5 rounded-xl ${scrolled ? c('text-gray-900','text-white') : 'text-white'}`,}
+              , menuOpen ? _react2.default.createElement(_lucidereact.X, { className: "w-6 h-6" ,} ) : _react2.default.createElement(_lucidereact.Menu, { className: "w-6 h-6" ,} )
+            )
+          )
+        )
+        , _react2.default.createElement(_framermotion.AnimatePresence, null
+          , menuOpen && (
+            _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, height: 0 }, animate: { opacity: 1, height: 'auto' }, exit: { opacity: 0, height: 0 },
+              className: `lg:hidden ${c('bg-white','bg-slate-900')} border-t ${c('border-gray-200','border-slate-800')} overflow-hidden`,}
+              , _react2.default.createElement('div', { className: "px-4 py-4 space-y-1"  ,}
+                , navItems.map(n => (
+                  _react2.default.createElement('a', { key: n.label, href: n.href, onClick: () => setMenuOpen(false),
+                    className: `block py-3 px-4 rounded-xl font-medium ${c('text-gray-700 hover:bg-gray-100','text-slate-300 hover:bg-slate-800')}`,}
+                    , n.label
+                  )
+                ))
+                , _react2.default.createElement('a', { href: WA, target: "_blank", rel: "noopener noreferrer" , onClick: () => setMenuOpen(false),
+                  className: "flex items-center justify-center gap-2 bg-emerald-500 text-white px-5 py-3 rounded-xl font-semibold mt-3"          ,}
+                  , _react2.default.createElement(_lucidereact.Phone, { className: "w-4 h-4" ,} ), FONE
+                )
+              )
+            )
+          )
+        )
+      )
+
+      /* HERO */
+      , _react2.default.createElement('section', { id: "inicio", className: "relative min-h-screen flex items-center overflow-hidden"    ,}
+        , _react2.default.createElement('div', { className: "absolute inset-0" ,}
+          , _react2.default.createElement('img', { src: images.hero, alt: "Engineering", className: "w-full h-full object-cover"  ,} )
+          , _react2.default.createElement('div', { className: "absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-900/70"     ,} )
+          , _react2.default.createElement('div', { className: "absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"     ,} )
+        )
+        , _react2.default.createElement('div', { className: "absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"       ,} )
+        , _react2.default.createElement('div', { className: "absolute bottom-20 left-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl"       ,} )
+        , _react2.default.createElement('div', { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full"        ,}
+          , _react2.default.createElement('div', { className: "max-w-2xl",}
+            , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { delay: .3 },
+              className: "inline-flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 mb-8 backdrop-blur-sm"          ,}
+              , _react2.default.createElement('div', { className: "w-2 h-2 rounded-full bg-emerald-400 animate-pulse"    ,} )
+              , _react2.default.createElement('span', { className: "text-blue-200 text-sm font-medium"  ,}, "Engenheiro Mecânico — CREA/PR 172454/D"    )
+              , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-4 h-4 text-blue-400"  ,} )
+            )
+            , _react2.default.createElement(_framermotion.motion.h1, { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { delay: .4, duration: .8 },
+              className: "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6"       ,}, "Engenharia com"
+               , ' '
+              , _react2.default.createElement('span', { className: "bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent"     ,}, "Excelência e Segurança"
+
+              )
+            )
+            , _react2.default.createElement(_framermotion.motion.p, { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { delay: .5 },
+              className: "text-lg text-slate-400 leading-relaxed mb-10 max-w-xl"    ,}, "Soluções completas em adequação NR-12, projetos mecânicos, laudos técnicos, perícias e consultoria industrial."
+
+            )
+            , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { delay: .6 },
+              className: "flex flex-col sm:flex-row gap-4"   ,}
+              , _react2.default.createElement('a', { href: WA, target: "_blank", rel: "noopener noreferrer" ,
+                className: "inline-flex items-center justify-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all hover:shadow-2xl hover:shadow-emerald-500/30"              ,}
+                , _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-5 h-5" ,} ), "WhatsApp", _react2.default.createElement(_lucidereact.ArrowUpRight, { className: "w-5 h-5" ,} )
+              )
+              , _react2.default.createElement('a', { href: TEL,
+                className: "inline-flex items-center justify-center gap-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all backdrop-blur-sm"               ,}
+                , _react2.default.createElement(_lucidereact.Phone, { className: "w-5 h-5" ,} ), FONE
+              )
+            )
+          )
+        )
+        , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { delay: 1.5 },
+          className: "absolute bottom-8 left-1/2 -translate-x-1/2 z-10"    ,}
+          , _react2.default.createElement(_lucidereact.ChevronDown, { className: "w-6 h-6 text-white/40 animate-bounce"   ,} )
         )
       )
 
       /* STATS */
-      , _react2.default.createElement('div', { className: "max-w-5xl mx-auto px-3 sm:px-4 -mt-6 sm:-mt-8",}
-        , _react2.default.createElement(_framermotion.motion.div, {
-          initial: { opacity: 0, y: 20 },
-          animate: { opacity: 1, y: 0 },
-          transition: { delay: 0.3, duration: 0.5 },
-          className: "grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3",}
-
-          , [
-            { num: "12+", label: "Áreas de Atuação" },
-            { num: "50+", label: "Normas Dominadas" },
-            { num: "100%", label: "Conformidade Legal" },
-            { num: "ART", label: "Em Todos os Serviços" }
-          ].map((stat, i) => (
-            _react2.default.createElement('div', { key: i, className: "bg-white rounded-xl p-3 sm:p-4 text-center shadow-md border border-gray-100",}
-              , _react2.default.createElement('p', { className: "text-lg sm:text-xl font-bold text-orange-500",}, stat.num)
-              , _react2.default.createElement('p', { className: "text-xs text-gray-500 mt-0.5 sm:mt-1 leading-tight",}, stat.label)
+      , _react2.default.createElement('section', { className: `relative z-10 ${c('bg-gray-50','bg-slate-950')}`,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16"     ,}
+          , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true },
+            className: `rounded-3xl shadow-2xl p-8 sm:p-10 border ${c('bg-white border-gray-200 shadow-gray-900/5','bg-slate-900 border-slate-800 shadow-black/20')}`,}
+            , _react2.default.createElement('div', { className: "grid grid-cols-2 lg:grid-cols-4 gap-8"   ,}
+              , stats.map((s, i) => {
+                const Ic = s.icon;
+                return (
+                  _react2.default.createElement('div', { key: i, className: "text-center",}
+                    , _react2.default.createElement('div', { className: `inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-4 ${c('bg-blue-50 text-blue-600','bg-blue-900 text-blue-400')}`,}
+                      , _react2.default.createElement(Ic, { className: "w-5 h-5" ,} )
+                    )
+                    , _react2.default.createElement('div', { className: `text-3xl sm:text-4xl font-extrabold ${c('text-gray-900','text-white')}`,}, s.v)
+                    , _react2.default.createElement('div', { className: `text-sm mt-1 font-medium ${c('text-gray-500','text-slate-400')}`,}, s.l)
+                  )
+                );
+              })
             )
-          ))
+          )
         )
       )
 
-      /* SERVICES */
-      , _react2.default.createElement('div', { className: "max-w-5xl mx-auto px-3 sm:px-4 py-8 sm:py-12",}
-        , _react2.default.createElement('div', { className: "text-center mb-6 sm:mb-8",}
-          , _react2.default.createElement('h2', { className: "text-xl sm:text-2xl font-bold text-gray-900",}, "Serviços Oferecidos" )
-          , _react2.default.createElement('p', { className: "text-xs sm:text-sm text-gray-500 mt-1 sm:mt-2",}, "Clique em cada área para ver o detalhamento" )
-        )
-        , _react2.default.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4",}
-          , services.map((service) => (
-            _react2.default.createElement(ServiceCard, {
-              key: service.id,
-              service: service,
-              isOpen: openId === service.id,
-              onClick: () => toggleCard(service.id),}
+      /* IMAGE SHOWCASE */
+      , _react2.default.createElement('section', { className: `py-24 sm:py-28 ${c('bg-gray-50','bg-slate-950')}`,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"    ,}
+          , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, className: "text-center mb-16" ,}
+            , _react2.default.createElement('span', { className: `inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 ${c('bg-amber-50 text-amber-700','bg-amber-900 text-amber-400')}`,}
+              , _react2.default.createElement(_lucidereact.AlertTriangle, { className: "w-4 h-4" ,} ), "Atuação Técnica Especializada"
             )
-          ))
+            , _react2.default.createElement('h2', { className: `text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5 ${c('text-gray-900','text-white')}`,}, "Segurança e Engenharia em Ação"
+
+            )
+            , _react2.default.createElement('p', { className: `text-lg max-w-2xl mx-auto ${c('text-gray-500','text-slate-400')}`,}, "Do canteiro de obras ao chão de fábrica — projetos, laudos e adequações que protegem vidas."
+
+            )
+          )
+          , _react2.default.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"    ,}
+            , illustrations.map((item, i) => {
+              const Ic = item.icon;
+              return (
+                _react2.default.createElement(_framermotion.motion.div, { key: i, initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true },
+                  transition: { delay: i * .12 },
+                  className: `group rounded-3xl overflow-hidden border transition-all duration-500 ${
+                    c('bg-white border-gray-200 hover:shadow-2xl','bg-slate-900 border-slate-800 hover:shadow-2xl hover:shadow-blue-500/5')
+                  }`,}
+                  , _react2.default.createElement('div', { className: "relative h-56 sm:h-64 overflow-hidden"   ,}
+                    , _react2.default.createElement('img', { src: item.img, alt: item.title, className: "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"     ,} )
+                    , _react2.default.createElement('div', { className: `absolute inset-0 bg-gradient-to-t ${item.overlay} via-transparent to-transparent opacity-60`,} )
+                    , _react2.default.createElement('div', { className: "absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"     ,} )
+                    , _react2.default.createElement('div', { className: "absolute top-4 left-4"  ,}
+                      , _react2.default.createElement('span', { className: "inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full"              ,}
+                        , _react2.default.createElement(Ic, { className: "w-3.5 h-3.5" ,} ), item.tag
+                      )
+                    )
+                    , _react2.default.createElement('div', { className: "absolute bottom-4 left-4 right-4"   ,}
+                      , _react2.default.createElement('h3', { className: "text-xl sm:text-2xl font-bold text-white drop-shadow-lg"    ,}, item.title)
+                    )
+                  )
+                  , _react2.default.createElement('div', { className: "p-6 sm:p-8" ,}
+                    , _react2.default.createElement('p', { className: `text-sm leading-relaxed ${c('text-gray-500','text-slate-400')}`,}, item.desc)
+                    , _react2.default.createElement('a', { href: waWithMsg(`Olá! Gostaria de solicitar um orçamento para: ${item.waMsg}.`), target: "_blank", rel: "noopener noreferrer" ,
+                      className: `inline-flex items-center gap-2 mt-4 text-sm font-semibold transition-all group-hover:gap-3 ${c(item.iconText, item.iconTextD)}`,}
+                      , item.cta, " " , _react2.default.createElement(_lucidereact.ArrowRight, { className: "w-4 h-4" ,} )
+                    )
+                  )
+                )
+              );
+            })
+          )
+        )
+      )
+
+      /* PARALLAX DIVIDER */
+      , _react2.default.createElement('section', { className: "relative h-72 sm:h-80 overflow-hidden"   ,}
+        , _react2.default.createElement('img', { src: images.blueprint, alt: "Blueprint", className: "absolute inset-0 w-full h-full object-cover"    ,} )
+        , _react2.default.createElement('div', { className: "absolute inset-0 bg-blue-950/80 backdrop-blur-sm"   ,} )
+        , _react2.default.createElement('div', { className: "relative z-10 flex flex-col items-center justify-center h-full text-center px-4"        ,}
+          , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true },}
+            , _react2.default.createElement('h3', { className: "text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4"     ,}, "Projetos que transformam ideias em estruturas seguras"
+
+            )
+            , _react2.default.createElement('p', { className: "text-blue-200 text-lg max-w-xl mx-auto"   ,}, "Cada detalhe técnico conta. Cada norma seguida salva vidas."
+
+            )
+          )
+        )
+      )
+
+      /* SERVICES ACCORDION */
+      , _react2.default.createElement('section', { id: "servicos", className: `py-24 sm:py-28 ${c('bg-white','bg-slate-900')}`,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"    ,}
+          , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, className: "text-center mb-16" ,}
+            , _react2.default.createElement('span', { className: `inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 ${c('bg-blue-50 text-blue-600','bg-blue-900 text-blue-400')}`,}
+              , _react2.default.createElement(_lucidereact.Layers, { className: "w-4 h-4" ,} ), "Serviços Especializados"
+            )
+            , _react2.default.createElement('h2', { className: `text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 ${c('text-gray-900','text-white')}`,}, "Soluções Completas em Engenharia"
+
+            )
+            , _react2.default.createElement('p', { className: `text-base max-w-xl mx-auto ${c('text-gray-500','text-slate-400')}`,}, "Clique em cada serviço para ver o detalhamento completo"
+
+            )
+          )
+          , _react2.default.createElement('div', { className: "max-w-4xl mx-auto flex flex-col gap-3"    ,}
+            , services.map((svc, i) => {
+              const isOpen = openAccordion === i;
+              const Ic = svc.icon;
+              return (
+                _react2.default.createElement(_framermotion.motion.div, { key: i, initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true },
+                  transition: { delay: i * 0.06 },
+                  className: `rounded-2xl border overflow-hidden transition-all duration-300 ${
+                    isOpen
+                      ? c('bg-white border-gray-300 shadow-xl','bg-slate-800 border-slate-600 shadow-xl shadow-blue-500/5')
+                      : c('bg-white border-gray-200 hover:border-gray-300 hover:shadow-md','bg-slate-800/50 border-slate-700 hover:border-slate-600 hover:shadow-md')
+                  }`,}
+                  , _react2.default.createElement('button', { onClick: () => toggleAccordion(i),
+                    className: "w-full flex items-center gap-4 p-5 sm:p-6 text-left cursor-pointer group"        ,}
+                    , _react2.default.createElement('div', { className: `w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-lg ${svc.iconBg}`,
+                      style: { boxShadow: `0 4px 14px -3px ${svc.ringColor}40, 0 0 0 3px ${dark ? '#1e293b' : '#ffffff'}, 0 0 0 5px ${svc.ringColor}` },}
+                      , _react2.default.createElement(Ic, { className: "w-5 h-5 sm:w-6 sm:h-6"   ,} )
+                    )
+                    , _react2.default.createElement('div', { className: "flex-1 min-w-0 ml-1"  ,}
+                      , _react2.default.createElement('h3', { className: `text-base sm:text-lg font-bold ${c('text-gray-900','text-white')}`,}, svc.title)
+                      , _react2.default.createElement('p', { className: `text-xs sm:text-sm mt-0.5 leading-relaxed ${c('text-gray-500','text-slate-400')}`,}, svc.desc)
+                    )
+                    , _react2.default.createElement('div', { className: `flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} ${c('text-gray-400','text-slate-500')}`,}
+                      , _react2.default.createElement(_lucidereact.ChevronDown, { className: "w-5 h-5" ,} )
+                    )
+                  )
+                  , _react2.default.createElement(_framermotion.AnimatePresence, { initial: false,}
+                    , isOpen && (
+                      _react2.default.createElement(_framermotion.motion.div, { initial: { height: 0, opacity: 0 }, animate: { height: 'auto', opacity: 1 }, exit: { height: 0, opacity: 0 },
+                        transition: { duration: 0.35, ease: [0.4, 0, 0.2, 1] }, className: "overflow-hidden",}
+                        , _react2.default.createElement('div', { className: "px-5 sm:px-6 pb-6"  ,}
+                          , _react2.default.createElement('div', { className: `h-px mb-5 ml-16 sm:ml-20 ${c('bg-gray-200','bg-slate-700')}`,} )
+                          , _react2.default.createElement('ul', { className: "flex flex-col gap-3 ml-16 sm:ml-20"    ,}
+                            , svc.items.map((item, j) => (
+                              _react2.default.createElement('li', { key: j, className: "flex items-start gap-3"  ,}
+                                , _react2.default.createElement(_lucidereact.CheckCircle, { className: `w-5 h-5 flex-shrink-0 mt-0.5 ${c(svc.textAccent, svc.textAccentD)}`,} )
+                                , _react2.default.createElement('span', { className: `text-sm leading-relaxed ${c('text-gray-600','text-slate-300')}`,}, item)
+                              )
+                            ))
+                          )
+                          , _react2.default.createElement('div', { className: `flex items-center gap-3 mt-5 ml-16 sm:ml-20 px-4 py-3 rounded-xl ${c(svc.normBg, svc.normBgD)}`,}
+                            , _react2.default.createElement(_lucidereact.FileText, { className: `w-4 h-4 flex-shrink-0 ${c(svc.textAccent, svc.textAccentD)}`,} )
+                            , _react2.default.createElement('span', { className: `text-sm font-semibold ${c(svc.textAccent, svc.textAccentD)}`,}, svc.norm)
+                          )
+                          , _react2.default.createElement('div', { className: "ml-16 sm:ml-20 mt-5"  ,}
+                            , _react2.default.createElement('a', { href: waWithMsg(`Olá! Gostaria de solicitar um orçamento para: ${svc.waMsg}.`), target: "_blank", rel: "noopener noreferrer" ,
+                              className: "inline-flex items-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-3 rounded-xl text-sm font-semibold transition-all hover:shadow-lg hover:shadow-emerald-500/20"             ,}
+                              , _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-4 h-4" ,} ), "Solicitar Orçamento" , _react2.default.createElement(_lucidereact.ArrowUpRight, { className: "w-4 h-4" ,} )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              );
+            })
+          )
+        )
+      )
+
+      /* ABOUT */
+      , _react2.default.createElement('section', { id: "sobre", className: `py-24 sm:py-28 ${c('bg-gray-50','bg-slate-950')}`,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"    ,}
+          , _react2.default.createElement('div', { className: "grid lg:grid-cols-2 gap-12 items-center"   ,}
+            , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true },}
+              , _react2.default.createElement('span', { className: `inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 ${c('bg-blue-50 text-blue-600','bg-blue-900 text-blue-400')}`,}
+                , _react2.default.createElement(_lucidereact.Award, { className: "w-4 h-4" ,} ), "Sobre"
+              )
+              , _react2.default.createElement('h2', { className: `text-3xl sm:text-4xl font-extrabold tracking-tight mb-6 ${c('text-gray-900','text-white')}`,}, "Eng. Carlos Eduardo Gabriel"
+
+              )
+              , _react2.default.createElement('p', { className: `text-lg leading-relaxed mb-8 ${c('text-gray-500','text-slate-400')}`,}, "Engenheiro Mecânico com registro ativo no CREA/PR (172454/D) e mais de 8 anos de experiência em adequação normativa, segurança de máquinas, desenvolvimento de produtos e consultoria industrial."
+
+              )
+              , _react2.default.createElement('div', { className: "grid grid-cols-1 sm:grid-cols-2 gap-4"   ,}
+                , diffs.map((d, i) => {
+                  const Ic = d.icon;
+                  return (
+                    _react2.default.createElement('div', { key: i, className: `flex items-start gap-3 p-4 rounded-2xl border ${c('bg-white border-gray-200','bg-slate-800 border-slate-700')}`,}
+                      , _react2.default.createElement('div', { className: `w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${c('bg-blue-50 text-blue-600','bg-blue-900 text-blue-400')}`,}
+                        , _react2.default.createElement(Ic, { className: "w-5 h-5" ,} )
+                      )
+                      , _react2.default.createElement('div', null
+                        , _react2.default.createElement('h4', { className: `font-bold text-sm flex items-center gap-1.5 ${c('text-gray-900','text-white')}`,}
+                          , d.t, d.verified && _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-4 h-4 text-blue-500"  ,} )
+                        )
+                        , _react2.default.createElement('p', { className: `text-xs mt-1 ${c('text-gray-500','text-slate-400')}`,}, d.d)
+                      )
+                    )
+                  );
+                })
+              )
+            )
+
+            /* CONTACT CARD */
+            , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, x: 40 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true },}
+              , _react2.default.createElement('div', { className: "bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 rounded-3xl p-8 relative overflow-hidden"       ,}
+                , _react2.default.createElement('div', { className: "absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"       ,} )
+                , _react2.default.createElement('div', { className: "relative z-10" ,}
+                  , _react2.default.createElement('div', { className: "flex items-center gap-4 mb-6"   ,}
+                    , _react2.default.createElement('div', { className: "w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-2xl shadow-blue-500/30 overflow-hidden p-1.5"            ,}
+                      , _react2.default.createElement(LogoImg, { size: 40, invert: true,} )
+                    )
+                    , _react2.default.createElement('div', null
+                      , _react2.default.createElement('h3', { className: "text-lg font-bold text-white"  ,}, "Carlos Eduardo Gabriel"  )
+                      , _react2.default.createElement('p', { className: "text-blue-300 text-sm font-semibold"  ,}, "Engenheiro Mecânico" )
+                      , _react2.default.createElement('div', { className: "flex items-center gap-1 mt-1"   ,}
+                        , [1, 2, 3, 4, 5].map(s => _react2.default.createElement(_lucidereact.Star, { key: s, className: "w-3 h-3 text-amber-400 fill-amber-400"   ,} ))
+                      )
+                    )
+                  )
+                  , [
+                    { icon: _lucidereact.Phone, label: 'Telefone', text: FONE },
+                    { icon: _lucidereact.Mail, label: 'E-mail', text: 'contato@engcegabriel.com.br' },
+                    { icon: _lucidereact.MapPin, label: 'Local', text: 'Curitiba/PR — Atendimento Nacional' },
+                    { icon: _lucidereact.Award, label: 'Registro', text: 'CREA/PR 172454/D', verified: true }
+                  ].map((it, i) => (
+                    _react2.default.createElement('div', { key: i, className: "flex items-center gap-3 mb-3"   ,}
+                      , _react2.default.createElement('div', { className: "w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"      ,}
+                        , _react2.default.createElement(it.icon, { className: "w-4 h-4 text-blue-400"  ,} )
+                      )
+                      , _react2.default.createElement('div', null
+                        , _react2.default.createElement('span', { className: "text-xs text-slate-500 block"  ,}, it.label)
+                        , _react2.default.createElement('span', { className: "text-sm text-slate-200 font-medium flex items-center gap-1.5"     ,}
+                          , it.text, it.verified && _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-3.5 h-3.5 text-blue-400"  ,} )
+                        )
+                      )
+                    )
+                  ))
+                  , _react2.default.createElement('div', { className: "flex gap-3 mt-5 pt-5 border-t border-white/10"     ,}
+                    , _react2.default.createElement('a', { href: WA, target: "_blank", rel: "noopener noreferrer" ,
+                      className: "flex-1 flex items-center justify-center gap-2 bg-emerald-500/20 border border-emerald-500/20 text-emerald-300 py-3 rounded-xl text-sm font-semibold hover:bg-emerald-500/30 transition-all"              ,}
+                      , _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-4 h-4" ,} ), "WhatsApp"
+                    )
+                    , _react2.default.createElement('a', { href: TEL,
+                      className: "flex-1 flex items-center justify-center gap-2 bg-blue-500/20 border border-blue-500/20 text-blue-300 py-3 rounded-xl text-sm font-semibold hover:bg-blue-500/30 transition-all"              ,}
+                      , _react2.default.createElement(_lucidereact.Phone, { className: "w-4 h-4" ,} ), "Ligar"
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+
+      /* METHOD */
+      , _react2.default.createElement('section', { className: `py-24 sm:py-28 ${c('bg-white','bg-slate-900')}`,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"    ,}
+          , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, className: "text-center mb-16" ,}
+            , _react2.default.createElement('span', { className: `inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 ${c('bg-blue-50 text-blue-600','bg-blue-900 text-blue-400')}`,}
+              , _react2.default.createElement(_lucidereact.TrendingUp, { className: "w-4 h-4" ,} ), "Metodologia"
+            )
+            , _react2.default.createElement('h2', { className: `text-3xl sm:text-4xl font-extrabold tracking-tight mb-5 ${c('text-gray-900','text-white')}`,}, "Processo Estruturado"
+
+            )
+          )
+          , _react2.default.createElement('div', { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"    ,}
+            , steps.map((s, i) => {
+              const Ic = s.icon;
+              return (
+                _react2.default.createElement(_framermotion.motion.div, { key: i, initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true },
+                  transition: { delay: i * .12 },
+                  className: `rounded-2xl p-6 border transition-all hover:-translate-y-1 ${
+                    c('bg-gray-50 border-gray-200 hover:shadow-xl','bg-slate-800 border-slate-700 hover:shadow-xl')
+                  }`,}
+                  , _react2.default.createElement('div', { className: "flex items-center gap-3 mb-4"   ,}
+                    , _react2.default.createElement('span', { className: `text-3xl font-black ${c('text-gray-200','text-slate-700')}`,}, s.n)
+                    , _react2.default.createElement('div', { className: `w-10 h-10 rounded-xl flex items-center justify-center ${c('bg-blue-50 text-blue-600','bg-blue-900 text-blue-400')}`,}
+                      , _react2.default.createElement(Ic, { className: "w-5 h-5" ,} )
+                    )
+                  )
+                  , _react2.default.createElement('h3', { className: `text-lg font-bold mb-2 ${c('text-gray-900','text-white')}`,}, s.t)
+                  , _react2.default.createElement('p', { className: `text-sm ${c('text-gray-500','text-slate-400')}`,}, s.d)
+                )
+              );
+            })
+          )
+        )
+      )
+
+      /* NORMS */
+      , _react2.default.createElement('section', { className: `py-16 border-y ${c('bg-gray-50 border-gray-200','bg-slate-950 border-slate-800')}`,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"     ,}
+          , _react2.default.createElement('p', { className: `text-xs font-bold uppercase tracking-widest mb-6 ${c('text-gray-400','text-slate-500')}`,}, "Normas e Padrões"  )
+          , _react2.default.createElement('div', { className: "flex flex-wrap justify-center gap-3"   ,}
+            , ['ABNT NBR','NR-12','NR-13','NR-18','ISO 12100','ISO 13849','ISO 9001','ISO 45001','ISO 55000','ASME','AWS D1.1','CREA'].map(n => (
+              _react2.default.createElement('span', { key: n, className: `text-sm font-semibold px-4 py-2.5 rounded-xl border ${
+                c('text-gray-400 bg-white border-gray-200 hover:border-blue-200 hover:text-blue-600','text-slate-500 bg-slate-800 border-slate-700 hover:border-blue-500/30 hover:text-blue-400')
+              } transition-all cursor-default`,}, n)
+            ))
+          )
         )
       )
 
       /* CTA */
-      , _react2.default.createElement('div', { className: "bg-blue-900 text-white py-10 sm:py-12",}
-        , _react2.default.createElement('div', { className: "max-w-3xl mx-auto px-4 text-center",}
-          , _react2.default.createElement('h3', { className: "text-lg sm:text-xl font-bold mb-3",}, "Precisa de um orçamento?" )
-          , _react2.default.createElement('p', { className: "text-blue-200 text-xs sm:text-sm mb-6 leading-relaxed",}, "Entre em contato para uma consulta técnica personalizada. Todos os serviços são executados com emissão de ART."
-          )
-          , _react2.default.createElement('div', { className: "flex flex-col sm:flex-row gap-3 justify-center",}
-            , _react2.default.createElement('a', { href: whatsappLink, target: "_blank", rel: "noopener noreferrer", className: "bg-green-600 hover:bg-green-700 transition-colors rounded-lg px-5 sm:px-6 py-3 flex items-center justify-center gap-2 cursor-pointer",}
-              , _react2.default.createElement(_lucidereact.Phone, { className: "w-4 h-4 text-white",} )
-              , _react2.default.createElement('span', { className: "text-sm font-medium",}, "(41) 99627-3338" )
+      , _react2.default.createElement('section', { id: "contato", className: "relative py-24 sm:py-28 overflow-hidden"   ,}
+        , _react2.default.createElement('div', { className: "absolute inset-0" ,}
+          , _react2.default.createElement('img', { src: images.cta, alt: "Technology", className: "w-full h-full object-cover"  ,} )
+          , _react2.default.createElement('div', { className: "absolute inset-0 bg-slate-950/85 backdrop-blur-sm"   ,} )
+        )
+        , _react2.default.createElement('div', { className: "absolute top-0 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"       ,} )
+        , _react2.default.createElement('div', { className: "relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"       ,}
+          , _react2.default.createElement(_framermotion.motion.div, { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true },}
+            , _react2.default.createElement('span', { className: "inline-flex items-center gap-2.5 bg-blue-500/10 border border-blue-500/20 text-blue-300 px-5 py-2.5 rounded-full text-sm font-semibold mb-8"            ,}
+              , _react2.default.createElement(_lucidereact.Zap, { className: "w-4 h-4" ,} ), "Pronto para começar?"
             )
-            , _react2.default.createElement('a', { href: emailLink, target: "_blank", rel: "noopener noreferrer", className: "bg-white bg-opacity-10 border border-white border-opacity-20 hover:bg-opacity-20 transition-colors rounded-lg px-5 sm:px-6 py-3 flex items-center justify-center gap-2 cursor-pointer",}
-              , _react2.default.createElement(_lucidereact.Mail, { className: "w-4 h-4 text-orange-400",} )
-              , _react2.default.createElement('span', { className: "text-sm",}, "eng.cegabriel@gmail.com")
+            , _react2.default.createElement('h2', { className: "text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6"      ,}, "Transforme seu Projeto em"
+                 , ' '
+              , _react2.default.createElement('span', { className: "bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent"     ,}, "Realidade")
             )
-            , _react2.default.createElement('div', { className: "bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg px-5 sm:px-6 py-3 flex items-center justify-center gap-2",}
-              , _react2.default.createElement(_lucidereact.MapPin, { className: "w-4 h-4 text-orange-400",} )
-              , _react2.default.createElement('span', { className: "text-sm",}, "Chapecó/SC")
+            , _react2.default.createElement('p', { className: "text-lg text-slate-400 mb-10 max-w-2xl mx-auto"    ,}, "Entre em contato para uma consulta técnica inicial sem compromisso."
+
+            )
+            , _react2.default.createElement('div', { className: "flex flex-col sm:flex-row gap-4 justify-center"    ,}
+              , _react2.default.createElement('a', { href: WA, target: "_blank", rel: "noopener noreferrer" ,
+                className: "inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all hover:shadow-2xl hover:shadow-emerald-500/30"              ,}
+                , _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-5 h-5" ,} ), "WhatsApp", _react2.default.createElement(_lucidereact.ArrowUpRight, { className: "w-5 h-5" ,} )
+              )
+              , _react2.default.createElement('a', { href: TEL,
+                className: "inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all hover:shadow-2xl hover:shadow-blue-500/30"              ,}
+                , _react2.default.createElement(_lucidereact.Phone, { className: "w-5 h-5" ,} ), FONE
+              )
             )
           )
         )
       )
 
       /* FOOTER */
-      , _react2.default.createElement('div', { className: "bg-gray-900 text-gray-400 py-6 text-center text-xs px-4",}
-        , _react2.default.createElement('p', null, "© 2025 — Carlos Eduardo Gabriel | Engenheiro Mecânico | CREA PR-172454/D" )
-        , _react2.default.createElement('p', { className: "mt-1",}, "Todos os serviços com emissão de ART conforme Lei 6.496/1977" )
+      , _react2.default.createElement('footer', { className: "bg-slate-950 border-t border-white/5"  ,}
+        , _react2.default.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"     ,}
+          , _react2.default.createElement('div', { className: "flex flex-col lg:flex-row items-center justify-between gap-8"     ,}
+            , _react2.default.createElement('div', { className: "flex items-center gap-3"  ,}
+              , _react2.default.createElement('div', { className: "w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center overflow-hidden p-1"          ,}
+                , _react2.default.createElement(LogoImg, { size: 26, invert: true,} )
+              )
+              , _react2.default.createElement('div', null
+                , _react2.default.createElement('span', { className: "font-bold text-white text-sm block"   ,}, "Eng. Carlos Eduardo Gabriel"   )
+                , _react2.default.createElement('span', { className: "text-xs text-slate-500 flex items-center gap-1.5 mt-0.5"     ,}, "Engenheiro Mecânico — CREA/PR 172454/D"
+
+                  , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-3.5 h-3.5 text-blue-400"  ,} )
+                )
+              )
+            )
+            , _react2.default.createElement('div', { className: "flex flex-wrap justify-center gap-6"   ,}
+              , navItems.map(n => (
+                _react2.default.createElement('a', { key: n.label, href: n.href, className: "text-sm text-slate-500 hover:text-white transition-colors"   ,}, n.label)
+              ))
+            )
+            , _react2.default.createElement('div', { className: "flex items-center gap-3"  ,}
+              , _react2.default.createElement('a', { href: TEL, className: "text-xs text-slate-400 px-4 py-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2 hover:bg-white/10 transition-all"            ,}
+                , _react2.default.createElement(_lucidereact.Phone, { className: "w-3.5 h-3.5" ,} ), FONE
+              )
+              , _react2.default.createElement('a', { href: WA, target: "_blank", rel: "noopener noreferrer" ,
+                className: "text-xs text-emerald-400 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-2 hover:bg-emerald-500/20 transition-all"            ,}
+                , _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-3.5 h-3.5" ,} ), "WhatsApp"
+              )
+            )
+          )
+          , _react2.default.createElement('div', { className: "mt-10 pt-8 border-t border-white/5 text-center"    ,}
+            , _react2.default.createElement('p', { className: "text-xs text-slate-600 flex items-center justify-center gap-1.5 flex-wrap"      ,}, "© 2024 Eng. Carlos Eduardo Gabriel — CREA/PR 172454/D"
+
+              , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-3.5 h-3.5 text-blue-500"  ,} ), "— Todos os direitos reservados."
+
+            )
+          )
+        )
+      )
+
+      /* FLOATING WA */
+      , _react2.default.createElement(_framermotion.motion.a, { href: WA, target: "_blank", rel: "noopener noreferrer" ,
+        initial: { scale: 0 }, animate: { scale: 1 }, transition: { delay: 2, type: 'spring' },
+        whileHover: { scale: 1.1 }, whileTap: { scale: .9 },
+        className: "fixed bottom-6 right-6 z-50"   ,}
+        , _react2.default.createElement('div', { className: "absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-20"     ,} )
+        , _react2.default.createElement('div', { className: "relative w-14 h-14 bg-emerald-500 hover:bg-emerald-400 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/30 transition-colors"           ,}
+          , _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-6 h-6 text-white"  ,} )
+        )
       )
     )
   );
-} exports.default = Portfolio;
+} exports.default = App;
 </script></head>
   <body>
   
